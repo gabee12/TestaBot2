@@ -39,3 +39,32 @@ for (const file of eventFiles) {
 }
 
 client.login(token);
+
+if (process.platform == 'win32') {
+    const rl = require('readline').createInterface({
+        input: process.stdin,
+        output: process.stdout,
+    });
+
+    rl.on('SIGINT', async function() {
+        process.emit('SIGINT');
+    });
+}
+
+process.on('SIGINT', async function() {
+    const queue = await client.queue.get('854864170965401630');
+    if (queue.songs.length > 0) {
+        let queueJson = JSON.stringify(queue.songs);
+        fs.writeFileSync('fila.json', queueJson);
+    }
+    process.exit();
+});
+
+process.on('uncaughtException', async function() {
+    const queue = await client.queue.get('854864170965401630');
+    if (queue.songs.length > 0) {
+        let queueJson = JSON.stringify(queue.songs);
+        fs.writeFileSync('fila.json', queueJson);
+    }
+    process.exit();
+})
