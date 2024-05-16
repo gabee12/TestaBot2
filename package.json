@@ -1,0 +1,29 @@
+{
+  "name": "testabot2",
+  "version": "1.0.0",
+  "description": "Testa Bot Revamped",
+  "main": "bot.js",
+  "scripts": {
+    "test": "node ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabee12/TestaBot2.git"
+  },
+  "keywords": [
+    "Bot",
+    "Discord"
+  ],
+  "author": "Gabriel Echeverria",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gabee12/TestaBot2/issues"
+  },
+  "homepage": "https://github.com/gabee12/TestaBot2#readme",
+  "dependencies": {
+    "discord.js": "^14.15.2"
+  },
+  "devDependencies": {
+    "eslint": "^9.2.0"
+  }
+}
